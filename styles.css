@@ -4,9 +4,15 @@
     box-sizing: border-box;
 }
 
+header {
+    position: fixed;
+    width: 100vw;
+    height: px;
+    background-color: white;
+}
+
 #library {
     background-color: #333;
-    border: 4px red solid;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
@@ -14,7 +20,6 @@
 }
 
 .book {
-    /* border: 2px blue solid; */
     min-height: 260px;
     display: flex;
     flex-direction: column;
@@ -25,9 +30,23 @@
     border-bottom-right-radius: 4px;
     text-align: center;
     padding: 0px 12px 24px 12px;
+    border-left: 8px #CC9 solid;
+}
+
+.book .bottom-info {
+    display: flex;
+    justify-content: space-around;
+    color: gray;
+    margin-top: 24px;
+    font-size: 0.8rem;
 }
 
 .book .title {
     font-weight: bold;
     font-size: 1.8rem;
+}
+
+.book .author {
+    font-style: italic;
+    font-size: 1.2rem;
 }

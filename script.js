@@ -25,16 +25,19 @@ function displayLibrary() {
         const author = document.createElement("p");
         author.textContent = book.author;
         author.classList = "author";
+        const bottomInfo = document.createElement("div");
+        bottomInfo.classList = "bottom-info";
         const pages = document.createElement("p");
-        pages.textContent = book.pages;
+        pages.textContent = book.pages + " pages";
         pages.classList = "pages";
         const read = document.createElement("p");
         read.textContent = book.read ? "Read" : "Unread";
         read.classList = "read";
         bookDiv.appendChild(title);
         bookDiv.appendChild(author);
-        bookDiv.appendChild(pages);
-        bookDiv.appendChild(read);
+        bottomInfo.appendChild(pages);
+        bottomInfo.appendChild(read);
+        bookDiv.appendChild(bottomInfo);
 
         libraryContainer.appendChild(bookDiv);
     }));
