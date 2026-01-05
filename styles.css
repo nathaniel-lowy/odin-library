@@ -10,10 +10,24 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
+    padding: 24px;
 }
 
 .book {
-    border: 2px blue solid;
+    /* border: 2px blue solid; */
     min-height: 260px;
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-color: #FFE;
+    border-radius: 1px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    text-align: center;
+    padding: 0px 12px 24px 12px;
+}
+
+.book .title {
+    font-weight: bold;
+    font-size: 1.8rem;
 }

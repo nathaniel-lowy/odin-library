@@ -29,7 +29,7 @@ function displayLibrary() {
         pages.textContent = book.pages;
         pages.classList = "pages";
         const read = document.createElement("p");
-        read.textContent = book.read;
+        read.textContent = book.read ? "Read" : "Unread";
         read.classList = "read";
         bookDiv.appendChild(title);
         bookDiv.appendChild(author);
@@ -50,7 +50,7 @@ addBookToLibrary("Book", "Author", 123, false);
 addBookToLibrary("Book2", "Author2", 234, true);
 addBookToLibrary("Book3", "Author3", 345, false);
 addBookToLibrary("Book", "Author", 123, false);
-addBookToLibrary("Book2", "Author2", 234, true);
+addBookToLibrary("Book2 With A Long Long Title", "Author2", 234, true);
 addBookToLibrary("Book3", "Author3", 345, false);
 addBookToLibrary("Book", "Author", 123, false);
 addBookToLibrary("Book2", "Author2", 234, true);
