@@ -6,6 +6,7 @@
 
 body {
     overflow: hidden;
+    background-color: #333;
 }
 
 header {
@@ -31,8 +32,14 @@ header #add-book {
 
 }
 
+.main-container {
+    display: flex;
+    flex-direction: column;
+}
+
 #library {
-    background-color: #333;
+    max-width: 1200px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 24px;

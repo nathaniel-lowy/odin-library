@@ -73,10 +73,12 @@ const dialogBackground = document.querySelector(".dialog-container");
 const dialog = document.querySelector("#enter-book");
 const dialogCancel = document.querySelector("#cancel");
 const dialogSave = document.querySelector("#save");
+const form = document.querySelector("form");
 
 addButton.addEventListener("click", ()=> {
     dialogBackground.style.display = "flex";
     dialog.showModal();
+    form.reset();
 });
 dialogCancel.addEventListener("click", ()=> {
     dialogBackground.style.display = "none";
@@ -93,11 +95,11 @@ dialogSave.addEventListener("click", ()=> {
 
 
 
-addBookToLibrary("Book", "Author", 123, false);
-addBookToLibrary("Book2", "Author2", 234, true);
-addBookToLibrary("Book3", "Author3", 345, false);
-addBookToLibrary("Book", "Author", 123, false);
-addBookToLibrary("Book2", "Author2", 234, true);
+// addBookToLibrary("Book", "Author", 123, false);
+// addBookToLibrary("Book2", "Author2", 234, true);
+// addBookToLibrary("Book3", "Author3", 345, false);
+// addBookToLibrary("Book", "Author", 123, false);
+// addBookToLibrary("Book2", "Author2", 234, true);
 // addBookToLibrary("Book3", "Author3", 345, false);
 // addBookToLibrary("Book", "Author", 123, false);
 // addBookToLibrary("Book2", "Author2", 234, true);
