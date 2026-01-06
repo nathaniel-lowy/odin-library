@@ -8,6 +8,50 @@ function Book(title, author, pages, read) {
     this.id = crypto.randomUUID();
 }
 
+Book.prototype.make = function () {
+    const libraryContainer = document.querySelector("#library");
+    const bookDiv = document.createElement("div");
+    bookDiv.classList = "book";
+    const title = document.createElement("p");
+    title.textContent = this.title;
+    title.classList = "title";
+    const author = document.createElement("p");
+    author.textContent = this.author;
+    author.classList = "author";
+    const bottomInfo = document.createElement("div");
+    bottomInfo.classList = "bottom-info";
+    const pages = document.createElement("p");
+    pages.textContent = this.pages + " pages";
+    pages.classList = "pages";
+    const read = document.createElement("p");
+    read.textContent = this.read ? "Read" : "Unread";
+    read.classList = "read";
+    read.tabIndex = 0;
+    read.addEventListener("click", ()=> {
+        read.textContent = read.textContent === "Read" ? "Unread" : "Read";
+    })
+    const topRow = document.createElement("div");
+    topRow.classList="top-row";
+    const bottomRow = document.createElement("div");
+    const close = document.createElement("button");
+    close.textContent = "x";
+    close.classList = "close";
+    close.addEventListener("click", () => {
+        removeBook(this.id);
+        console.log(this.id);
+    });
+
+    topRow.appendChild(close);
+    bookDiv.appendChild(topRow);
+    bottomRow.appendChild(title);
+    bottomRow.appendChild(author);
+    bottomInfo.appendChild(pages);
+    bottomInfo.appendChild(read);
+    bottomRow.appendChild(bottomInfo);
+    bookDiv.appendChild(bottomRow);
+    libraryContainer.appendChild(bookDiv);
+}
+
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
@@ -23,48 +67,7 @@ function displayLibrary() {
     const libraryContainer = document.querySelector("#library");
     libraryContainer.replaceChildren();
     myLibrary.forEach((book => {
-        const bookDiv = document.createElement("div");
-        bookDiv.classList = "book";
-
-        const title = document.createElement("p");
-        title.textContent = book.title;
-        title.classList = "title";
-        const author = document.createElement("p");
-        author.textContent = book.author;
-        author.classList = "author";
-        const bottomInfo = document.createElement("div");
-        bottomInfo.classList = "bottom-info";
-        const pages = document.createElement("p");
-        pages.textContent = book.pages + " pages";
-        pages.classList = "pages";
-        const read = document.createElement("p");
-        read.textContent = book.read ? "Read" : "Unread";
-        read.classList = "read";
-        read.tabIndex = 0;
-        read.addEventListener("click", ()=> {
-            read.textContent = read.textContent === "Read" ? "Unread" : "Read";
-        })
-        const topRow = document.createElement("div");
-        topRow.classList="top-row";
-        const bottomRow = document.createElement("div");
-        const close = document.createElement("button");
-        close.textContent = "x";
-        close.classList = "close";
-        close.addEventListener("click", () => {
-            removeBook(book.id);
-            console.log(book.id);
-        });
-
-        topRow.appendChild(close);
-        bookDiv.appendChild(topRow);
-        bottomRow.appendChild(title);
-        bottomRow.appendChild(author);
-        bottomInfo.appendChild(pages);
-        bottomInfo.appendChild(read);
-        bottomRow.appendChild(bottomInfo);
-        bookDiv.appendChild(bottomRow);
-
-        libraryContainer.appendChild(bookDiv);
+        book.make();
     }));
 }
 
@@ -91,9 +94,6 @@ dialogSave.addEventListener("click", ()=> {
     dialog.close();
     displayLibrary();
 });
-
-
-
 
 // addBookToLibrary("Book", "Author", 123, false);
 // addBookToLibrary("Book2", "Author2", 234, true);
