@@ -38,7 +38,6 @@ Book.prototype.make = function () {
     close.classList = "close";
     close.addEventListener("click", () => {
         removeBook(this.id);
-        console.log(this.id);
     });
 
     topRow.appendChild(close);
@@ -58,7 +57,6 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function removeBook(id) {
-    console.log(id);
     myLibrary = myLibrary.filter(book => book.id !== id);
     displayLibrary();
 }
