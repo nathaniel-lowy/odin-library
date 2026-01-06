@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -11,6 +11,12 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
   const book = new Book(title, author, pages, read);
   myLibrary.push(book);
+}
+
+function removeBook(id) {
+    console.log(id);
+    myLibrary = myLibrary.filter(book => book.id !== id);
+    displayLibrary();
 }
 
 function displayLibrary() {
@@ -34,6 +40,15 @@ function displayLibrary() {
         const read = document.createElement("p");
         read.textContent = book.read ? "Read" : "Unread";
         read.classList = "read";
+        const close = document.createElement("button");
+        close.textContent = "x";
+        close.classList = "close";
+        close.addEventListener("click", () => {
+            removeBook(book.id);
+            console.log(book.id);
+        });
+
+        bookDiv.appendChild(close);
         bookDiv.appendChild(title);
         bookDiv.appendChild(author);
         bottomInfo.appendChild(pages);
