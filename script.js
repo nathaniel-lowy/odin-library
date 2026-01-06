@@ -40,6 +40,12 @@ function displayLibrary() {
         const read = document.createElement("p");
         read.textContent = book.read ? "Read" : "Unread";
         read.classList = "read";
+        read.addEventListener("click", ()=> {
+            read.textContent = read.textContent === "Read" ? "Unread" : "Read";
+        })
+        const topRow = document.createElement("div");
+        topRow.classList="top-row";
+        const bottomRow = document.createElement("div");
         const close = document.createElement("button");
         close.textContent = "x";
         close.classList = "close";
@@ -48,12 +54,14 @@ function displayLibrary() {
             console.log(book.id);
         });
 
-        bookDiv.appendChild(close);
-        bookDiv.appendChild(title);
-        bookDiv.appendChild(author);
+        topRow.appendChild(close);
+        bookDiv.appendChild(topRow);
+        bottomRow.appendChild(title);
+        bottomRow.appendChild(author);
         bottomInfo.appendChild(pages);
         bottomInfo.appendChild(read);
-        bookDiv.appendChild(bottomInfo);
+        bottomRow.appendChild(bottomInfo);
+        bookDiv.appendChild(bottomRow);
 
         libraryContainer.appendChild(bookDiv);
     }));
@@ -84,11 +92,11 @@ dialogSave.addEventListener("click", ()=> {
 
 
 
-// addBookToLibrary("Book", "Author", 123, false);
-// addBookToLibrary("Book2", "Author2", 234, true);
-// addBookToLibrary("Book3", "Author3", 345, false);
-// addBookToLibrary("Book", "Author", 123, false);
-// addBookToLibrary("Book2", "Author2", 234, true);
+addBookToLibrary("Book", "Author", 123, false);
+addBookToLibrary("Book2", "Author2", 234, true);
+addBookToLibrary("Book3", "Author3", 345, false);
+addBookToLibrary("Book", "Author", 123, false);
+addBookToLibrary("Book2", "Author2", 234, true);
 // addBookToLibrary("Book3", "Author3", 345, false);
 // addBookToLibrary("Book", "Author", 123, false);
 // addBookToLibrary("Book2", "Author2", 234, true);
