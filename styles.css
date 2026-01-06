@@ -47,7 +47,7 @@ header #add-book {
     gap: 24px;
     padding: 24px;
     /* overflow-y: auto; */
-    height: calc(100vh - 144px);
+    height: calc(100dvh - 144px);
 }
 
 .book {
