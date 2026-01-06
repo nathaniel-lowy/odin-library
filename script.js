@@ -43,6 +43,28 @@ function displayLibrary() {
     }));
 }
 
+const addButton = document.querySelector("#add-book");
+const dialogBackground = document.querySelector(".dialog-container");
+const dialog = document.querySelector("#enter-book");
+const dialogCancel = document.querySelector("#cancel");
+const dialogSave = document.querySelector("#save");
+
+addButton.addEventListener("click", ()=> {
+    dialogBackground.style.display = "flex";
+    dialog.showModal();
+});
+dialogCancel.addEventListener("click", ()=> {
+    dialogBackground.style.display = "none";
+    dialog.close();
+});
+dialogSave.addEventListener("click", ()=> {
+    dialogBackground.style.display = "none";
+    dialog.close();
+});
+
+
+
+
 addBookToLibrary("Book", "Author", 123, false);
 addBookToLibrary("Book2", "Author2", 234, true);
 addBookToLibrary("Book3", "Author3", 345, false);
