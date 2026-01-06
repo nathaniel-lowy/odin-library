@@ -15,6 +15,7 @@ function addBookToLibrary(title, author, pages, read) {
 
 function displayLibrary() {
     const libraryContainer = document.querySelector("#library");
+    libraryContainer.replaceChildren();
     myLibrary.forEach((book => {
         const bookDiv = document.createElement("div");
         bookDiv.classList = "book";
@@ -58,8 +59,11 @@ dialogCancel.addEventListener("click", ()=> {
     dialog.close();
 });
 dialogSave.addEventListener("click", ()=> {
+    const results = document.querySelectorAll("input");
+    addBookToLibrary(results[0].value, results[1].value, results[2].value, results[3].checked);
     dialogBackground.style.display = "none";
     dialog.close();
+    displayLibrary();
 });
 
 
