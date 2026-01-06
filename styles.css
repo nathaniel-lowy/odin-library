@@ -37,12 +37,14 @@ header #add-book {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 24px;
     padding: 24px;
-    overflow-y: scroll;
+    overflow-y: auto;
+    justify-content: start;
     height: calc(100vh - 144px);
 }
 
 .book {
-    height: 252px;
+    aspect-ratio: 2/3;
+    max-height: 440px;
     display: flex;
     flex-direction: column;
     justify-content: end;
