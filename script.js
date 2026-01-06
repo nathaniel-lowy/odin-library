@@ -40,6 +40,7 @@ function displayLibrary() {
         const read = document.createElement("p");
         read.textContent = book.read ? "Read" : "Unread";
         read.classList = "read";
+        read.tabIndex = 0;
         read.addEventListener("click", ()=> {
             read.textContent = read.textContent === "Read" ? "Unread" : "Read";
         })
