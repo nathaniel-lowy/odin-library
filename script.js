@@ -14,6 +14,15 @@ class Book {
         Book.displayLibrary();
     }
 
+    toggleRead (id) {
+        myLibrary.forEach(book => {
+            if (book.id === id) {
+                book.read = !book.read;
+            }
+        })
+        Book.displayLibrary();
+    }
+
     make() {
         const libraryContainer = document.querySelector("#library");
         const bookDiv = document.createElement("div");
@@ -35,7 +44,7 @@ class Book {
         read.classList = "read";
         read.tabIndex = 0;
         read.addEventListener("click", () => {
-            read.textContent = read.textContent === "Read" ? "Unread" : "Read";
+            this.toggleRead(this.id);
         });
         const topRow = document.createElement("div");
         topRow.classList = "top-row";
