@@ -41,12 +41,10 @@ header #add-book {
 }
 
 #library {
-    /* margin: 0 auto; */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 24px;
     padding: 24px;
-    /* overflow-y: auto; */
     height: calc(100dvh - 144px);
 }
 
